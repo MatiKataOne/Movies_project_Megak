@@ -12,6 +12,9 @@ class MoviesDbManager {
         title,
         poster: `https://image.tmdb.org/t/p/original${poster_path}`,
         description: overview,
+        runtime: movieDetails.runtime,
+        budget: movieDetails.budget,
+        homepage: movieDetails.homepage,
         actors: [],
         genres: [],
         countries: [],
@@ -33,6 +36,8 @@ class MoviesDbManager {
   }
 
   async saveLanguages(spoken_languages, movie) {
+    
+    console.log(`Languages: "${spoken_languages}"`);
     for (const language of spoken_languages) {
       let languageDocument = await Language.findOne({ name: language.name });
       if (!languageDocument) {
@@ -44,6 +49,9 @@ class MoviesDbManager {
   }
 
   async saveCountries(production_countries, movie) {
+    
+    console.log(`Countries: "${production_countries}"`);
+    if(!production_countries)return;
     for (const country of production_countries) {
       let countryDocument = await Country.findOne({ name: country.name });
       if (!countryDocument) {
@@ -64,7 +72,7 @@ class MoviesDbManager {
         if (!actor) {
           actor = new Actor({
             name,
-            photo: photo, // Add the photo field
+            photo: photo,
           });
           await actor.save();
         }
@@ -74,6 +82,8 @@ class MoviesDbManager {
   }
 
   async saveGenres(movieData, genres, movie) {
+    
+    console.log(`Genres: "${genres}"`);
     for (const genreId of movieData.genre_ids) {
       const matchingGenre = genres.find((genre) => genre.id === genreId);
       if (matchingGenre) {
@@ -87,17 +97,16 @@ class MoviesDbManager {
     }
   }
 
-  async getMovies() {
+  async getMovies(page) {
     const now = new Date();
     const startOfMonth = new Date(now.getFullYear(), now.getMonth(), 1);
     const endOfMonth = new Date(now.getFullYear(), now.getMonth() + 1, 0);
     const startDate = startOfMonth.toISOString().split('T')[0];
     const endDate = endOfMonth.toISOString().split('T')[0];
-
-    const genres = await movieService.movieService.fetchMovieGenres();
-
-    const movies = await movieService.movieService.fetchMoviesByReleaseDate(startDate, endDate);
-    return { movies, genres };
+    return await movieService.movieService.fetchMoviesByReleaseDate(startDate, endDate, page);
+  }
+  async getGenres() {
+    return await movieService.movieService.fetchMovieGenres();
   }
 }
 

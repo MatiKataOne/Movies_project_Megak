@@ -36,19 +36,20 @@ class MovieService{
         }
       }
     
-    async fetchMoviesByReleaseDate(startDate, endDate) {
+    async fetchMoviesByReleaseDate(startDate, endDate, page) {
       try {
         const response = await axios.get('http://api.themoviedb.org/3/discover/movie', {
           params: {
             api_key: this.API_KEY,
             'primary_release_date.gte': startDate,
             'primary_release_date.lte': endDate,
+            page: page
           },
         });
-        return response.data.results;
+        return {data:response.data.results, page:response.data.page, total_pages: response.data.total_pages };
       } catch (error) {
         console.error('Error fetching movies by release date:', error.message);
-        return [];
+        return {data:[], page: 0, total_pages:0 };
       }
     }
     async fetchMovieDetails(movieId) {

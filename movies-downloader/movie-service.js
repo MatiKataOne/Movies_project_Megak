@@ -1,7 +1,6 @@
 
 const axios = require('axios');
 const { Movie, Language, Country, Actor, Genre } = require('./database/database');
-const cron = require('node-cron');
 
 class MovieService{
 

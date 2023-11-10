@@ -1,10 +1,5 @@
 const mongoose = require('mongoose');
-mongoose.connect('mongodb+srv://zarazsiewnerwie:zNtbNHT6eEqFcvNK@cluster0.8pvfntf.mongodb.net/movies_database?retryWrites=true&w=majority', {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-  connectTimeoutMS: 60000, 
-  socketTimeoutMS: 60000,
-  tls:false
+mongoose.connect('mongodb://localhost:27017/movies_database', {
 });
 
 const languageSchema = new mongoose.Schema({

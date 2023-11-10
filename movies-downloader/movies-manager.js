@@ -36,8 +36,10 @@ class MoviesDbManager {
   }
 
   async saveLanguages(spoken_languages, movie) {
-    
-    console.log(`Languages: "${spoken_languages}"`);
+    if(!spoken_languages){
+      console.log(`${movie.title} have no languages.`);
+      return;
+    }
     for (const language of spoken_languages) {
       let languageDocument = await Language.findOne({ name: language.name });
       if (!languageDocument) {
@@ -49,8 +51,10 @@ class MoviesDbManager {
   }
 
   async saveCountries(production_countries, movie) {
-    
-    console.log(`Countries: "${production_countries}"`);
+    if(!production_countries){
+      console.log(`${movie.title} have no countries.`);
+      return;
+    }
     if(!production_countries)return;
     for (const country of production_countries) {
       let countryDocument = await Country.findOne({ name: country.name });
@@ -82,8 +86,10 @@ class MoviesDbManager {
   }
 
   async saveGenres(movieData, genres, movie) {
-    
-    console.log(`Genres: "${genres}"`);
+    if(!genres){
+      console.log(`${movie.title} have no genres.`);
+      return;
+    }
     for (const genreId of movieData.genre_ids) {
       const matchingGenre = genres.find((genre) => genre.id === genreId);
       if (matchingGenre) {

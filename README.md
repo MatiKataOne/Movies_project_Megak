@@ -10,19 +10,23 @@ Demo aplikacji znajduje się pod [tym linkiem](https://heroku-mega-movies-7f0a83
 - **Konfiguracja:** Aby poprawnie działał, należy ręcznie ustawić adres do bazy MongoDB oraz podać klucz API do serwisu z filmami.
 - **Plik konfiguracyjny:** Spójrz do pliku `./movie-downloader/movie-service.js` dla więcej szczegółów.
 
-## mega-movies
+## mega-movies (ta aplikacja jest wyhostowana w demo)
 - **Opis:** web api napisane za pomocą NestJs które łączy się z bazą mongo i hostuje dane o filmach
-- **Szczegóły:** 
+- **Szczegóły:** adresy endpointów:
 
-/movies - hostuje podstawowe dane o filmach. przy pomocy parametrów query można filtrować dane po języku, kraju o radzaju filmy
+### /movies 
+- hostuje podstawowe dane o filmach. przy pomocy parametrów query można filtrować dane po języku, kraju o radzaju filmy
 
-parametry query: genre, language, country
+- parametry query: genre, language, country
 
-dodatkowo zaimplementowana jest funkcjonalność pagingu podając dodatkowe parametry query: page (domyślnie 1) oraz limit (domyślnie 10)
+- dodatkowo zaimplementowana jest funkcjonalność pagingu podając dodatkowe parametry query: page (domyślnie 1) oraz limit (domyślnie 10)
 
-/meta-data/genres - zwraca wszystkie rodzaje filmów
-/meta-data/languages - zwraca wszystkie języki filmów
-/meta-data/countries - zwraca wszystkie kraje filmów
+### /meta-data/genres 
+- zwraca wszystkie rodzaje filmów
+### /meta-data/languages 
+- zwraca wszystkie języki filmów
+### /meta-data/countries 
+- zwraca wszystkie kraje filmów
 
 ## mega-movies-frontend
 - **Opis:** jest to aplikacja frontendow napisana w ReactJs, która po odpaleniu skryptu 

@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost:27017/movies_database', {
+mongoose.connect('mongodb+srv://zarazsiewnerwie:Koda-Kumi1@cluster0.8pvfntf.mongodb.net/?retryWrites=true&w=majority', {
 });
 
 const languageSchema = new mongoose.Schema({

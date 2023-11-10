@@ -3,7 +3,7 @@ import { MoviesResult } from './contract/MoviesResult';
 import { FilterOptions } from './contract/FilterOptions';
 import { MovieSummaryDto } from './contract/MovieSummaryDto';
 
-const BASE_URL = 'http://localhost:3000/movies'; // This should be the URL of your NestJS backend
+const BASE_URL = '/movies'; // This should be the URL of your NestJS backend
 
 export class MoviesService {
     static async findOne(id: string): Promise<MovieSummaryDto | null> {

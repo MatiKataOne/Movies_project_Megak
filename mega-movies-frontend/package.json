@@ -15,8 +15,7 @@
     "@types/react-dom": "^18.2.15",
     "axios": "^1.6.1",
     "bootstrap": "^5.3.2",
-    "primeicons": "^6.0.1",
-    "primereact": "^10.0.9",
+    "ncp": "^2.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-scripts": "5.0.1",
@@ -26,6 +25,8 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "postbuild": "ncp build ../mega-movies/public",
+    "build:prod": "npm run build && npm run postbuild",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },

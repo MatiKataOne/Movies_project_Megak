@@ -2,7 +2,7 @@ import axios from 'axios';
 import {Country, Genre, Language} from "./contract/dictionaries";
 
 export class DictionariesService {
-    static BASE_URL = 'http://localhost:3000/meta-data'; // Adjust as needed
+    static BASE_URL = '/meta-data'; // Adjust as needed
 
     static async findAllLanguages(): Promise<Language[]> {
         try {

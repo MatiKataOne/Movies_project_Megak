@@ -4,7 +4,7 @@ const { Movie, Language, Country, Actor, Genre } = require('./database/database'
 
 class MovieService{
 
-    API_KEY = '8a69e489fde371f06659a592d209e074';
+    API_KEY = 'API_KEY';
 
     
      async fetchMovieCredits(movieId) {

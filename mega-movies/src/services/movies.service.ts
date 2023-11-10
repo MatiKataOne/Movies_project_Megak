@@ -72,6 +72,7 @@ export class MoviesService {
         genres: dicts.genres,
         countries: dicts.countries,
         languages: dicts.langs,
+        id: doc.id
       };
       return x;
     });

@@ -6,9 +6,13 @@ import { Country } from './Country';
 import { Actor } from './Actor';
 import { Genre } from './Genre';
 import { Movie } from './Movie';
-import { MoviesService } from 'src/services/movies.service';
+import { MoviesService } from '../../services/movies.service';
 import { MoviesController } from 'src/controllers/movies.controller';
 import { DataContext } from "./data.context";
+import { DictionariesController } from "../../controllers/dictionaries.controller";
+import { LanguagesService } from "../../services/languages.service";
+import { GenresService } from "../../services/genres.service";
+import { CountriesService } from "../../services/countries.service";
 
 export const LanguageSchema = SchemaFactory.createForClass(Language);
 export const CountrySchema = SchemaFactory.createForClass(Country);
@@ -26,7 +30,7 @@ export const MovieSchema = SchemaFactory.createForClass(Movie);
       { name: Movie.name, schema: MovieSchema },
     ]),
   ],
-  controllers:[MoviesController],
-  providers: [MoviesService, DataContext]
+  controllers:[MoviesController, DictionariesController],
+  providers: [MoviesService, DataContext, LanguagesService, GenresService, CountriesService]
 })
 export class MovieModule {}

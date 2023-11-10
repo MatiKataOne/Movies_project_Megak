@@ -6,4 +6,5 @@ export interface MovieSummaryDto {
   languages: string[];
   runtime?: number;
   title?: string;
+  id?: string;
 }

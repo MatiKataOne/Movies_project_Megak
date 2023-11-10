@@ -2,7 +2,7 @@ import { Prop, Schema } from '@nestjs/mongoose';
 import { Document, Types } from 'mongoose';
 import { Language } from './Language';
 import { Country } from './Country';
-import { Actor } from './Actor';
+import { Actor } from './actor';
 import { Genre } from './Genre';
 
 @Schema()

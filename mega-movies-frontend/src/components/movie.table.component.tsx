@@ -73,8 +73,7 @@ const MovieTable = () => {
                                 <TableCell>{movie.countries.join(', ')}</TableCell>
                                 <TableCell>{movie.genres?.join(', ')}</TableCell>
                                 <TableCell>
-                                    <img src={movie.poster} style={{width:'100px',height:'120px'}}/>
-                                    <a href={movie.homepage}>Visit</a>
+                                    <a href={movie.homepage}><img src={movie.poster} style={{width:'100px',height:'120px'}}/></a>
                                 </TableCell>
                             </TableRow>
                         ))}
